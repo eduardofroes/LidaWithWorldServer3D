@@ -6,6 +6,7 @@ import edu.memphis.ccrg.lida.framework.tasks.FrameworkTaskImpl;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import support.SimulationController;
 import ws3dproxy.WS3DProxy;
@@ -35,6 +36,7 @@ public class Environment extends EnvironmentImpl {
     private int ticksPerRun;
     public double previousX;
     public double previousY;
+    private String previousAction;
     private boolean random;
     private boolean rotate;
     private boolean delivery;
@@ -56,6 +58,7 @@ public class Environment extends EnvironmentImpl {
         this.delivery = false;
         this.previousDate = null;
         this.buriedThings = new ArrayList<>();
+        this.previousAction = "";
     }
 
     @Override
@@ -201,75 +204,108 @@ public class Environment extends EnvironmentImpl {
     public void updateEnvironment() {
         creature.updateState();
 
-        thingDirection = null;
+        List<Thing> thingsSorted = new ArrayList<>();
+        List<Thing> thingsInVision = creature.getThingsInVision();
+
+        Collections.sort(thingsInVision, (t1, t2) -> Double.compare(creature.calculateDistanceTo(t1), creature.calculateDistanceTo(t2)));
+
+        thingsSorted.addAll(thingsInVision);
+        thingsSorted.addAll(buriedThings);
+
         thingToGet = null;
         thingCollided = null;
         wallFront = null;
-        random = false;
         delivery = false;
         rotate = false;
+        random = false;
 
-        List<Thing> things = orderByDistance(creature.getThingsInVision());
+        double gap = 60;
 
         if (!verifyIfLeafletIsCompleted(creature.getLeaflets())) {
-            for (Thing thing : things) {
+            for (Thing thing : thingsSorted) {
                 if (thing.getCategory() != Constants.categoryBRICK
                         && thing.getCategory() != Constants.categoryDeliverySPOT) {
 
-                    if (creature.calculateDistanceTo(thing) <= Constants.OFFSET) {
+                    if (creature.calculateDistanceTo(thing) <= gap) {
                         if ((thing.getCategory() == Constants.categoryPFOOD || thing.getCategory() == Constants.categoryNPFOOD)) {
-
                             if (creature.getFuel() <= 400) {
                                 thingToGet = thing;
                             } else {
-                                thingCollided = thing;
+                                if (thing.hidden == false) {
+                                    thingCollided = thing;
+                                }
                             }
-
+                            break;
                         } else {
                             if (thing.getCategory() == Constants.categoryJEWEL) {
                                 if (jewelInLeaflet(thing)) {
+                                    thingDirection = null;
                                     thingToGet = thing;
                                 } else {
                                     thingCollided = thing;
                                 }
+                                break;
                             }
                         }
                     } else {
                         if ((thing.getCategory() == Constants.categoryPFOOD || thing.getCategory() == Constants.categoryNPFOOD)) {
                             if (creature.getFuel() <= 400) {
                                 thingDirection = thing;
+                                break;
                             }
+
 
                         } else if (thing.getCategory() == Constants.categoryJEWEL) {
                             if (jewelInLeaflet(thing)) {
                                 thingDirection = thing;
+                                break;
                             }
                         }
                     }
                 } else {
 
                     double distance = creature.calculateDistanceTo(thing);
-                    double gap = 65;
 
                     if (distance <= gap) {
                         wallFront = thing;
+                        break;
                     }
 
                 }
-                break;
+
             }
         } else {
 
-            things.forEach(t -> {
-                if (creature.calculateDistanceTo(deliverySpot) <= 65) {
-                    if (t.getCategory() == Constants.categoryBRICK) {
-                        thingCollided = t;
-                        return;
+            for (Thing t : thingsSorted) {
+                if (creature.calculateDistanceTo(t) <= 65) {
+                    if (t.getCategory() == Constants.categoryBRICK || t.getCategory() == Constants.categoryDeliverySPOT) {
+                        wallFront = t;
+                        thingDirection = null;
+                        break;
+                    } else {
+                        if ((t.getCategory() == Constants.categoryPFOOD || t.getCategory() == Constants.categoryNPFOOD)) {
+                            if (creature.getFuel() <= 400) {
+                                thingToGet = t;
+                            } else {
+                                if (t.hidden == false)
+                                    thingCollided = t;
+                            }
+                            break;
+                        } else {
+                            if (t.getCategory() == Constants.categoryJEWEL) {
+                                if (jewelInLeaflet(t)) {
+                                    thingToGet = t;
+                                } else {
+                                    thingCollided = t;
+                                }
+                            }
+                            break;
+                        }
                     }
                 }
-            });
+            }
 
-            if (thingCollided == null) {
+            if (thingCollided == null && thingToGet == null) {
                 if (creature.calculateDistanceTo(deliverySpot) <= 65) {
                     delivery = true;
                 } else {
@@ -279,10 +315,11 @@ public class Environment extends EnvironmentImpl {
         }
 
         if (wallFront == null
+                && thingToGet == null
                 && thingDirection == null
                 && thingCollided == null
                 && delivery == false) {
-            if(randomMovement()){
+            if (randomMovement()) {
                 random = true;
             } else {
                 rotate = true;
@@ -291,7 +328,7 @@ public class Environment extends EnvironmentImpl {
         }
     }
 
-    public List<Thing> orderByDistance(List<Thing> things) {
+    public List<Thing> organizeThings(List<Thing> things) {
 
         Comparator<Thing> comparator = new Comparator<Thing>() {
             @Override
@@ -368,94 +405,140 @@ public class Environment extends EnvironmentImpl {
     private void performAction(String currentAction) {
         try {
             Random rand = new Random();
+            int randValue = rand.nextInt(2);
+            double angle = randomAngle(randValue);
+
             switch (currentAction) {
 
                 case "rotate":
                     creature.rotate(3);
+                    rotate = false;
                     break;
 
                 case "random":
+                    if (!previousAction.equals(currentAction)) {
+                        creature.move(-3, -3, creature.getPitch());
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
 
-                    int targetx = rand.nextInt(800);
-                    int targety = rand.nextInt(600);
-                    creature.moveto(3, targetx, targety);
+                        creature.rotate(3);
+
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        creature.move(3, 3, angle);
+
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        random = false;
+                    }
                     break;
+
 
                 case "avoid":
 
-                    int random = rand.nextInt(2);
-                    double angle = randomAngle(random);
+                    if (!previousAction.equals(currentAction)) {
+                        creature.move(-3, -3, creature.getPitch());
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
 
-                    creature.move(-3, -3, creature.getPitch());
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        creature.rotate(3);
+
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        creature.move(3, 3, angle);
+
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        wallFront = null;
                     }
 
-                    creature.rotate(3);
-
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    creature.move(3, 3, angle);
-
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                     break;
 
                 case "move":
-                    creature.moveto(3, thingDirection.getX1(), thingDirection.getY1());
+                    if (thingDirection != null) {
+                        creature.moveto(3, thingDirection.getX1(), thingDirection.getY1());
+                    }
                     break;
 
                 case "delivery":
-                    for (Leaflet leaflet : creature.getLeaflets()) {
-                        try {
-                            if (leaflet.isCompleted()) {
-                                creature.deliverLeaflet(leaflet.getID().toString());
-                            }
-                        } catch (Exception e) {
+                    if (!previousAction.equals(currentAction)) {
+                        for (Leaflet leaflet : creature.getLeaflets()) {
+                            try {
+                                if (leaflet.isCompleted()) {
+                                    creature.deliverLeaflet(leaflet.getID().toString());
+                                }
+                            } catch (Exception e) {
 
+                            }
                         }
+                        delivery = false;
                     }
                     break;
 
                 case "bury":
-                    if (thingCollided.getCategory() == Constants.categoryNPFOOD || thingCollided.getCategory() == Constants.categoryPFOOD){
-                        buriedThings.add(thingCollided);
-                        creature.hideIt(thingToGet.getName());
-                    } else {
-                        creature.hideIt(thingToGet.getName());
-                    }
+                    if (!previousAction.equals(currentAction)) {
+                        if (thingCollided != null) {
+                            if (thingCollided.getCategory() == Constants.categoryNPFOOD || thingCollided.getCategory() == Constants.categoryPFOOD) {
+                                thingCollided.hidden = true;
+                                buriedThings.add(thingCollided);
+                                creature.hideIt(thingCollided.getName());
+                            } else {
+                                creature.hideIt(thingCollided.getName());
+                            }
 
+                            thingCollided = null;
+                        }
+                    }
                     break;
 
                 case "get":
-                    creature.move(0.0, 0.0, 0.0);
+                    if (!previousAction.equals(currentAction)) {
+                        if (thingToGet != null) {
+                            creature.move(0.0, 0.0, 0.0);
 
-                    if (thingToGet.getCategory() == Constants.categoryJEWEL) {
-                        creature.putInSack(thingToGet.getName());
-                    } else if (thingToGet.getCategory() == Constants.categoryNPFOOD || thingToGet.getCategory() == Constants.categoryPFOOD) {
-                        if(buriedThings.stream().filter(t -> t.getName().equals(thingToGet.getName())).findAny().orElse(null) != null)
-                        {
-                            buriedThings.removeIf(t -> t.getName().equals(thingToGet.getName()));
+                            if (thingToGet.getCategory() == Constants.categoryJEWEL) {
+                                creature.putInSack(thingToGet.getName());
+                            } else if (thingToGet.getCategory() == Constants.categoryNPFOOD || thingToGet.getCategory() == Constants.categoryPFOOD) {
+                                if (buriedThings.stream().filter(t -> t.getName().equals(thingToGet.getName())).findAny().orElse(null) != null) {
+                                    buriedThings.removeIf(t -> t.getName().equals(thingToGet.getName()));
+                                }
+
+                                creature.eatIt(thingToGet.getName());
+                            }
+
+                            thingDirection = null;
+                            thingToGet = null;
+                            this.resetState();
                         }
-
-                        creature.eatIt(thingToGet.getName());
                     }
-
-
-                    this.resetState();
                     break;
                 default:
                     break;
             }
+
+            previousAction = currentAction;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
