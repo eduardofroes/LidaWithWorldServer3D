@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="LidaWithWorldServer3D:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="01c89a12-d565-42b9-b9bb-555d40bb46ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LidaWithWorldServer3D/modules/Environment$1.class" afterPath="$PROJECT_DIR$/out/production/LidaWithWorldServer3D/modules/Environment$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentsExecution/LidaWithWorldServer3D.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/LidaWithWorldServer3D_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentsExecution/configs/Agent.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentsExecution/configs/LidaFactories.xsd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentsExecution/configs/LidaXMLSchema.xsd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentsExecution/configs/factoryData.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentsExecution/configs/guiCommands.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentsExecution/configs/guiPanels.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentsExecution/configs/lidaConfig.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentsExecution/configs/logging.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LidaWithWorldServer3D/modules/Environment.class" afterPath="$PROJECT_DIR$/out/production/LidaWithWorldServer3D/modules/Environment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/Agent.xml" afterPath="$PROJECT_DIR$/configs/Agent.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/Environment.java" afterPath="$PROJECT_DIR$/src/modules/Environment.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,31 +41,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SensoryMemory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/SensoryMemory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Environment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Environment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/Environment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="221" column="23" lean-forward="false" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
+            <state relative-caret-position="174">
+              <caret line="140" column="40" lean-forward="true" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RotateDetector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/detectors/RotateDetector.java">
+      <file leaf-file-name="exp.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/experimentsExecution/exp.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+            <state relative-caret-position="0">
+              <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Agent.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/experimentsExecution/configs/Agent.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -62,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/src/detectors/RandomDetector.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+              <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,41 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThingToGetDetector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/detectors/ThingToGetDetector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThingDirectionDetector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/detectors/ThingDirectionDetector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ThingCollidedDetector.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/detectors/ThingCollidedDetector.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WallFrontDetector.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/detectors/WallFrontDetector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -164,6 +147,7 @@
         <option value="$PROJECT_DIR$/configs/factoryData.xml" />
         <option value="$PROJECT_DIR$/configs/Agent.xml" />
         <option value="$PROJECT_DIR$/src/modules/Environment.java" />
+        <option value="$PROJECT_DIR$/experimentsExecution/exp.sh" />
       </list>
     </option>
   </component>
@@ -210,6 +194,48 @@
             <path>
               <item name="LidaWithWorldServer3D" type="b2602c69:ProjectViewProjectNode" />
               <item name="LidaWithWorldServer3D" type="462c0819:PsiDirectoryNode" />
+              <item name="experimentsExecution" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LidaWithWorldServer3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LidaWithWorldServer3D" type="462c0819:PsiDirectoryNode" />
+              <item name="experimentsExecution" type="462c0819:PsiDirectoryNode" />
+              <item name="reportFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LidaWithWorldServer3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LidaWithWorldServer3D" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LidaWithWorldServer3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LidaWithWorldServer3D" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LidaWithWorldServer3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LidaWithWorldServer3D" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="LidaWithWorldServer3D_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LidaWithWorldServer3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LidaWithWorldServer3D" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LidaWithWorldServer3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LidaWithWorldServer3D" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="LidaWithWorldServer3D" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LidaWithWorldServer3D" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LidaWithWorldServer3D" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -249,8 +275,8 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -259,6 +285,7 @@
       <recent name="support" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/experimentsExecution" />
       <recent name="$PROJECT_DIR$/src/support" />
     </key>
   </component>
@@ -533,15 +560,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1509034290184</updated>
-      <workItem from="1509034293617" duration="36273000" />
+      <workItem from="1509034293617" duration="40878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36273000" />
+    <option name="totallyTimeSpent" value="40878000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="22" width="1920" height="1054" extended-state="6" />
+    <frame x="1920" y="22" width="1920" height="1058" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -554,7 +581,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
@@ -564,7 +591,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23149113" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23149113" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
@@ -831,7 +858,7 @@
     <entry file="file://$PROJECT_DIR$/src/detectors/WallFrontDetector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -839,7 +866,7 @@
     <entry file="file://$PROJECT_DIR$/src/detectors/RotateDetector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -847,7 +874,7 @@
     <entry file="file://$PROJECT_DIR$/src/detectors/RandomDetector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -865,7 +892,7 @@
     <entry file="file://$PROJECT_DIR$/src/detectors/ThingCollidedDetector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -880,8 +907,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Environment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="221" column="23" lean-forward="false" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
+        <state relative-caret-position="174">
+          <caret line="140" column="40" lean-forward="true" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experimentsExecution/exp.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" lean-forward="true" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experimentsExecution/reportFiles/Lida_EnergySpent20171031_165032.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-419">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experimentsExecution/reportFiles/Lida_Score20171031_165032.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experimentsExecution/reportFiles/Lida_Score20171031_170932.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="0" column="4690" lean-forward="true" selection-start-line="0" selection-start-column="4690" selection-end-line="0" selection-end-column="4690" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experimentsExecution/configs/Agent.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -892,10 +959,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>LidaWithWorldServer3D:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
